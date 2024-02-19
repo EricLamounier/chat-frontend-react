@@ -1,0 +1,36 @@
+.chatHeader {
+    width: 100%;
+    height: var(--sizeHeight2);
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+    border-radius: 10px;
+    background: var(--background);
+    box-shadow:  7px 7px 14px var(--shaddow1),
+                 -7px -7px 14px var(--shaddow2);
+    padding-right: 10px;
+}
+
+.chatHeader .myImage {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    background: var(--background);
+    box-shadow:  7px 7px 14px var(--shaddow1),
+                 -7px -7px 14px var(--shaddow2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chatHeader .myInfo {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.chatHeader .myInfo span {
+    font-size: 14px;
+    text-align: end;
+}

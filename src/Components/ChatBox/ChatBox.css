@@ -1,0 +1,109 @@
+.chatBox {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    height: calc(100% - var(--sizeHeight2));
+    border-radius: 20px;
+}
+
+.inputBox {
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    height: calc(var(--sizeHeight2) - 20px);
+    position: relative;
+    font-size: 12px;
+}
+
+.inputBox > input[type=text] {
+    width: 100%;
+    border-radius: 10px;
+    font-size: 15;
+    padding-left: 10px;
+    border-radius: 10px;
+    background: var(--background);
+    box-shadow:  7px 7px 14px var(--shaddow1),
+                 -7px -7px 14px var(--shaddow2);
+    border: 0;
+    outline: 0;
+    color: var(--fontColor);
+}
+
+.inputBox > input::placeholder {
+    font-size: 14px;
+    color: var(--fontColor);
+    opacity: 0.4;
+}
+
+.inputBox > input:focus {
+    background: linear-gradient(145deg, #614f7f, #745e97);
+    box-shadow:  8px 8px 16px #5c4b78,
+                 -8px -8px 16px #7c65a2;
+}
+
+.inputBox > #button {
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.1s ease-in-out;
+}
+
+.inputBox > #button:active {
+    background: linear-gradient(145deg, #614f7f, #745e97);
+    box-shadow:  8px 8px 16px #5c4b78,
+                 -8px -8px 16px #7c65a2;
+    transform: translate(1px,1px);
+}
+
+.inputBox::after {
+    content: 'Caracteres: ';
+    position: absolute;
+    bottom: -20px;
+    left: 5px;
+}
+
+.inputBox::before {
+    content: attr(count);
+    position: absolute;
+    bottom: -20px;
+    left: 75px;
+    font-weight: bold;
+}
+
+.inputBox > .sendBox {
+    width: 80px;
+    border-radius: 10px;
+    background: var(--background);
+    box-shadow:  7px 7px 14px var(--shaddow1),
+                 -7px -7px 14px var(--shaddow2);
+    border: 0;
+}
+
+.chat {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 10px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    border-radius: 10px;
+    background: var(--background);
+    box-shadow:  7px 7px 14px var(--shaddow1),
+                 -7px -7px 14px var(--shaddow2);
+}
+
+::-webkit-scrollbar {
+    width: 2px;
+  }
+  
+::-webkit-scrollbar-track {
+    background: rgb(171, 171, 171);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgb(93, 93, 93);    /* color of the scroll thumb */
+}

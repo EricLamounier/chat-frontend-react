@@ -1,0 +1,6 @@
+.chatContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap1);
+    width: 100%;
+}

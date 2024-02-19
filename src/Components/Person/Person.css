@@ -1,0 +1,8 @@
+.person {
+    width: 100px;
+    min-height: 90px;
+    border-radius: 10px;
+    background: var(--background);
+    box-shadow:  7px 7px 14px var(--shaddow1),
+                 -7px -7px 14px var(--shaddow2);
+}
