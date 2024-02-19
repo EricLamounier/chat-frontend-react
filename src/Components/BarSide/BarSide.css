@@ -41,3 +41,9 @@
     box-shadow:  7px 7px 14px var(--shaddow1),
                  -7px -7px 14px var(--shaddow2);
 }
+
+@media screen and (max-width: 500px) {
+    .side {
+      display: none;
+    }
+}

@@ -2,7 +2,8 @@
     width: 100%;
     height: var(--sizeHeight2);
     display: flex;
-    justify-content: end;
+    justify-content: flex-end;
+    align-items: center;
     gap: 20px;
     border-radius: 10px;
     background: var(--background);
@@ -24,13 +25,14 @@
 }
 
 .chatHeader .myInfo {
-    width: 60%;
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
     gap: 5px;
 }
 
 .chatHeader .myInfo span {
     font-size: 14px;
     text-align: end;
+    padding: 3px 5px 3px 5px;
 }

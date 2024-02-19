@@ -6,8 +6,8 @@ const ChatHeader = (props) => {
             <div className='myInfo'>
                 <span className='myName'>{props.name}</span>
                 <span className='myID'>{props.id}</span>
-                <div className='myImage'>{props.image}</div>
             </div>
+            <div className='myImage'>{props.image}</div>
         </div>
     )
 }
