@@ -12,7 +12,7 @@ body {
 
 :root {
   --size1: 100px;
-  --sizeHeight2: 80px;
+  --sizeHeight2: 70px;
   --gap1: 50px;
   --borderBox: 15px;
   --background: #756198;
@@ -22,10 +22,23 @@ body {
   --fontColor2: rgb(196, 196, 196);
 }
 
+
 #root {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100vw;
   height: 100vh;
+}
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(171, 171, 171);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgb(93, 93, 93);    /* color of the scroll thumb */
 }

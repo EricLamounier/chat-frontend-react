@@ -1,0 +1,63 @@
+.messageContainer {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.messageContainer .messageBox {
+    width: 75%;
+    max-width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 5px;
+    border-radius: var(--borderBox);
+    background: var(--background);
+    box-shadow:  7px 7px 14px var(--shaddow1),
+                 -7px -7px 14px var(--shaddow2);
+}
+
+.messageContainer.receive {
+    justify-content: flex-start;
+}
+
+.messageContainer.receive .messageBox {
+    border-top-left-radius: 0;
+}
+
+.messageContainer.send .messageBox {
+    border-bottom-right-radius: 0;
+}
+
+.messageContainer.send {
+    justify-content: flex-end;
+}
+
+.messageContainer.messageContainer.receive .image {
+    width: 30px;
+    height: 30px;
+    border-radius: 100px;
+    background: var(--background);
+    box-shadow:  7px 7px 14px var(--shaddow1),
+                 -7px -7px 14px var(--shaddow2);
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.messageBox .message {
+    font-size: 14px;
+    padding-left: 5px;
+    font-family: sans-serif;
+    font-size: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    word-wrap: break-word;
+}
+
+.messageBox .inf {
+    font-size: 11px;
+    opacity: 0.4;
+}
