@@ -1,13 +1,12 @@
 import './Login.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-const Login = () => {
+const Login = (props) => {
 
-    const [name, setName] = useState('')
+    const [name, setName] = useState('123')
+    const [user, setUser] = useState({})
     const [error, setError] = useState('')
-    const [isVisible, setIsVisible] = useState(false)
-
-    let websocket = null;
+    const [isVisible, setIsVisible] = useState(true)
 
     const handleLogin = () => {
         const nameLength = name.length
@@ -16,9 +15,48 @@ const Login = () => {
             return
         }
 
+        const ws = props.onLogin()
+
+        if(localStorage.getItem('user') != null){ 
+                const x = JSON.parse(localStorage.getItem('user'))
+                setUser(x)
+        }
+
         setIsVisible(false)
-        websocket = new WebSocket('wss://cchat-backend-i2rk.onrender.com')
+
+        ws.onopen = () => ws.send(JSON.stringify({ 'id': -1, 'message': 'Um usuário acabou de se conectar' }));
     }
+
+    useEffect(() => {
+        setUser(user)
+        
+    }, [user]);
+
+    const cadUser = () => {
+        const configUser = {
+            'userName': configName(),
+            'userID': getRandomID(),
+            'message': '',
+            'messageType': -1, //configuration
+        }
+        localStorage.setItem('user', JSON.stringify(configUser))
+        return configUser
+    }
+
+    const getRandomID = () => {
+        let id = '0000' + Math.round(Math.random() * 9999)
+        const stringLength = id.length
+      
+        id = name.toLowerCase() + '#' + id.slice(id.length-4, id.length)
+        return id
+    }
+
+    const configName = () => {
+        const words = name.split(' ')
+        const capitalyze = words.map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        return capitalyze.join(' ')
+    }
+      
 
     return (
         <div id="login" style={{display: isVisible ? 'flex' : 'none'}}>
