@@ -11,7 +11,7 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 5px;
-    padding: 5px;
+    padding: 1px;
     box-shadow:  7px 7px 14px var(--shaddow1),
                  -7px -7px 14px var(--shaddow2);
 }

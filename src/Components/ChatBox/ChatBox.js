@@ -37,10 +37,11 @@ const ChatBox = (props) => {
     const handleSend = (event) => {
         event.preventDefault();
     
-        if (count > maxCaracters)
+        if (count > maxCaracters || count <= 0 || text.length <= 0)
             return;
     
         setText('');
+        setCount(0)
     
         setInterval(() => { inputRef.current.focus() }, 200);
         const user = JSON.parse(localStorage.getItem('user'))
@@ -55,7 +56,7 @@ const ChatBox = (props) => {
     }
     
     return (
-        <div className='chatBox'>
+        <form className='chatBox'>
             <div className='chat nes-container is-rounded' ref={chatRef}>
                 {props.messages.map((message, index) => (
                     <Message 
@@ -82,14 +83,14 @@ const ChatBox = (props) => {
                 />
                 <button 
                     id="button" 
-                    type="button" 
+                    type="submit" 
                     className="sendBox nes-btn is-success"
                     onClick={handleSend}
                 >
                         <span className="material-symbols-outlined">send</span>
                 </button>
             </div>
-        </div>
+        </form>
     )
 }
 

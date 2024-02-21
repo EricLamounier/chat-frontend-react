@@ -2,7 +2,7 @@ import './Login.css'
 import { useState, useEffect } from 'react'
 const Login = (props) => {
 
-    const [name, setName] = useState('123')
+    const [name, setName] = useState('')
     const [user, setUser] = useState({})
     const [error, setError] = useState('')
     const [isVisible, setIsVisible] = useState(true)
@@ -16,7 +16,8 @@ const Login = (props) => {
         setName(event.target.value)
     }
     
-    const handleLogin = () => {
+    const handleLogin = (e) => {
+        e.preventDefault()
         const nameLength = name.length
         if (nameLength < 3){
             setError('Necessário tem um mínimo de 3 caracteres!')
@@ -61,7 +62,7 @@ const Login = (props) => {
       
     return (
         <div id="login" style={{display: isVisible ? 'flex' : 'none'}}>
-            <div 
+            <form 
                 className="form nes-container with-title"
             >
                 <p className="title">Entrar</p>
@@ -75,17 +76,18 @@ const Login = (props) => {
                         placeholder="Digite seu nome aqui"
                         value={name}
                         onInput={handleInput}
+                        autoComplete="off"
                         required 
                     />
                     <span id="errorMessage">{error}</span>
                     <button 
-                        type="button" 
+                        type="submit" 
                         className="nes-btn is-warning"
                         id="entrar"
                         onClick={handleLogin}
                     >Entrar</button>            
                 </div>
-            </div>
+            </form>
         </div>
     )
 }
