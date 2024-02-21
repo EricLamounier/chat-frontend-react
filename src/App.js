@@ -40,7 +40,7 @@ function App() {
   }, [id, websocket]);
 
   const handleLogin = () => {
-    const newWebSocket = new WebSocket('wss://cchat-backend-i2rk.onrender.com');
+    const newWebSocket = new WebSocket('wss://partially-legible-ferret.ngrok-free.app');
     setWebsocket(newWebSocket);
     return newWebSocket;
   };
