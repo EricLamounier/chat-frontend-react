@@ -59,6 +59,7 @@
 }
 
 .messageContainer .image {
+    color: rgb(47, 47, 47);
     width: 30px;
     height: 30px;
     display: flex;

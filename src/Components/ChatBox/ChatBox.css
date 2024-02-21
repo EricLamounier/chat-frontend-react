@@ -92,3 +92,7 @@
 .inputBox > .sendBox {
     width: 80px;
 }
+
+#button:active .material-symbols-outlined {
+    transform: translate(2px,2px);
+}
