@@ -15,10 +15,10 @@ const Message = (props) => {
     }, [])
 
     return (        
-        <div className={`messageContainer ${props.messageType ? 'receive' : 'send'}`}>
+        <div className={`messageContainer ${props.messageType}`}>
             { // Imagem caso for mensagem recebida
-                props.image ? 
-                <div className='image'></div> : null
+                props.messageType === 'receive' ? 
+                <div className='image'>{props.id[0]}</div> : null
             }
 
             <div className='messageBox nes-container is-rounded'>

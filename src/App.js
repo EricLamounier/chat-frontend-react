@@ -25,7 +25,7 @@ function App() {
         'userID': _data.userID,
         'userName': _data.userName,
         'message': _data.message,
-        'messageType': _data.userID === id ? 0 : 1
+        'messageType': _data.userID === id ? 'send' : 'receive'
       };
 
       console.log(_data.userID === id ? 0 : 1)
