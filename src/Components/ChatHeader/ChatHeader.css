@@ -1,6 +1,6 @@
 .chatHeader {
     width: 100%;
-    height: calc(var(--sizeHeight2) - 6px);
+    height: calc(var(--sizeHeight2) - 0px);
     display: flex;
     justify-content: end;
     align-items: center;
@@ -13,8 +13,8 @@
 }
 
 .chatHeader .myImage {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
     border-radius: 50px;
     background: var(--background);
     box-shadow:  7px 7px 14px var(--shaddow1),
@@ -28,11 +28,10 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 5px;
+    font-size: 13px;
 }
 
 .chatHeader .myInfo span {
-    font-size: 14px;
     text-align: end;
     padding: 3px 5px 3px 5px;
 }

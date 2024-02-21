@@ -34,11 +34,3 @@ body {
 ::-webkit-scrollbar {
   width: 2px;
 }
-
-::-webkit-scrollbar-track {
-  background: rgb(171, 171, 171);
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: rgb(93, 93, 93);    /* color of the scroll thumb */
-}

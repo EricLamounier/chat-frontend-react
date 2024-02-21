@@ -1,22 +1,32 @@
 import './Message.css'
+import { useEffect, useState } from 'react'
 
 const Message = (props) => {
-    return (
-        
-        <div className={`messageContainer ${props.image ? 'receive' : 'send'}`}>
+
+    const getTime = () => {
+        const date = new Date()
+        return date.getHours() + ':' + date.getMinutes()
+    }
+
+    const [time, setTime] = useState('')
+
+    useEffect(() => {
+        setTime(getTime())
+    }, [])
+
+    return (        
+        <div className={`messageContainer ${props.messageType ? 'receive' : 'send'}`}>
             { // Imagem caso for mensagem recebida
                 props.image ? 
                 <div className='image'></div> : null
             }
 
             <div className='messageBox'>
-                <span className='id inf'>id</span>
-                <span className='message'>mmensagemmensagemmensagem</span>
-                <span className='time inf'>11:11</span>
+                <span className='id inf'>{props.id}</span>
+                <span className='message'>{props.message}</span>
+                <span className='time inf'>{time}</span>
             </div>
-        </div>
-
-        
+        </div>        
     )
 }
 

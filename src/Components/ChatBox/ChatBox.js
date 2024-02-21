@@ -7,19 +7,17 @@ const ChatBox = (props) => {
     const [text, setText] = useState('')
     const [count, setCount] = useState(0)
     const [color, setColor] = useState(0) // 0-black | 1-orange | 2-red
-    const [messages, setMessages] = useState([{'image': 1}, {'image': 2}])
     const inputRef = useRef(null);
     const chatRef = useRef(null)
     const maxCaracters = 150
 
     useEffect(() => {
         goToEnd()
-
-    }, [])
+    }, [props.messages])
 
     const goToEnd = () => {
         const chatDiv = chatRef.current
-        chatDiv.scrollTop = chatDiv.scrollHeight
+        chatDiv.scrollTop = chatDiv.scrollHeight;
     }
 
     const handleInput = (event) => {
@@ -37,24 +35,36 @@ const ChatBox = (props) => {
     };
 
     const handleSend = (event) => {
-        event.preventDefault()
-
+        event.preventDefault();
+    
         if (count > maxCaracters)
-            return
-
-        //cria a mensagem no box
-        setText('')
-        setInterval(()=>{inputRef.current.focus()}, 200)
-        //props.websocket.send('oi')
+            return;
+    
+        setText('');
+    
+        setInterval(() => { inputRef.current.focus() }, 200);
+        const user = JSON.parse(localStorage.getItem('user'))
+        
+        const message = {
+            'userID': user.userID,
+            'userName': user.userName,
+            'message': text,
+            'messageType': 0
+        }
+        props.websocket.send(JSON.stringify(message));
     }
-
+    
     return (
         <div className='chatBox'>
             <div className='chat' ref={chatRef}>
-                {messages.map((message, index) => (
-                    <Message key={index} image={message.image} />
+                {props.messages.map((message, index) => (
+                    <Message 
+                        id={message.userID}
+                        message={message.message}
+                        key={index}
+                        messageType={message.messageType}
+                    />
                 ))}
-            
             </div>
             <div 
                 className='inputBox' 
