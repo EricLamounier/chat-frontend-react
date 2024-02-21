@@ -1,10 +1,13 @@
 import './Person.css'
 
 const Person = (props) => {
+
     return (
-        <div className='person'>
+        <a className='person nes-btn is-rounded is-primary'
+        onClick={props.startChat}
+        >
             { /* TODO */}
-        </div>
+        </a>
     )
 }
 

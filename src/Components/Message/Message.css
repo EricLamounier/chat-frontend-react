@@ -12,8 +12,6 @@
     justify-content: space-between;
     gap: 5px;
     padding: 5px;
-    border-radius: var(--borderBox);
-    background: var(--background);
     box-shadow:  7px 7px 14px var(--shaddow1),
                  -7px -7px 14px var(--shaddow2);
 }
@@ -38,9 +36,6 @@
     width: 30px;
     height: 30px;
     border-radius: 100px;
-    background: var(--background);
-    box-shadow:  7px 7px 14px var(--shaddow1),
-                 -7px -7px 14px var(--shaddow2);
     font-size: 12px;
     display: flex;
     justify-content: center;
@@ -50,14 +45,15 @@
 .messageBox .message {
     font-size: 14px;
     padding-left: 5px;
-    font-family: sans-serif;
-    font-size: 14px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    font-size: 11px;
     word-wrap: break-word;
+    color: black
 }
 
 .messageBox .inf {
     font-size: 11px;
-    opacity: 0.4;
+    opacity: 0.6;
+    font-family: sans-serif;
+    color: #000;
+    font-style: italic;
 }

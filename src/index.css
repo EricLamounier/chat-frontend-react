@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@800&family=Press+Start+2P&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -5,9 +7,10 @@
 }
 
 body {
-  background: var(--background);
-  font-family: sans-serif;
-  color: var(--fontColor);
+  background: var(--background) !important;
+  /*font-family: sans-serif !important;*/
+  /*color: var(--fontColor) !important;*/
+  font-family: "Press Start 2P", system-ui;
 }
 
 :root {
@@ -15,10 +18,10 @@ body {
   --sizeHeight2: 70px;
   --gap1: 50px;
   --borderBox: 15px;
-  --background: #756198;
-  --shaddow1: #635281;
-  --shaddow2: #8770af;
-  --fontColor: rgb(232, 231, 234);
+  --background: #f0f0f0;
+  --shaddow1: #c7c7c7;
+  --shaddow2: #ffffff;
+  --fontColor: rgb(44, 44, 44);
   --fontColor2: rgb(196, 196, 196);
 }
 

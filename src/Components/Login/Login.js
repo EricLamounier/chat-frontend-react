@@ -1,6 +1,5 @@
 import './Login.css'
 import { useState, useEffect } from 'react'
-
 const Login = (props) => {
 
     const [name, setName] = useState('123')
@@ -62,21 +61,29 @@ const Login = (props) => {
       
     return (
         <div id="login" style={{display: isVisible ? 'flex' : 'none'}}>
-            <div className="form">
+            <div 
+                className="form nes-container with-title"
+            >
+                <p className="title">Entrar</p>
                 <div className="formBox">
-                    <label>Entrar</label>
+                    <label 
+                        htmlFor="name_field">Seu nome</label>
                     <input 
-                        id="cadUser" 
                         type="text" 
-                        placeholder="Digite seu nome aqui" 
+                        id="name_field" 
+                        className="nes-input is-success"
+                        placeholder="Digite seu nome aqui"
                         value={name}
                         onInput={handleInput}
-                        required/>
+                        required 
+                    />
                     <span id="errorMessage">{error}</span>
                     <button 
+                        type="button" 
+                        className="nes-btn is-warning"
                         id="entrar"
                         onClick={handleLogin}
-                    >Entrar</button>
+                    >Entrar</button>            
                 </div>
             </div>
         </div>

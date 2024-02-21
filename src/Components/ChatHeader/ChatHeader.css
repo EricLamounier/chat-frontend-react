@@ -1,15 +1,13 @@
 .chatHeader {
     width: 100%;
-    height: calc(var(--sizeHeight2) - 0px);
+    height: 10%;
     display: flex;
     justify-content: end;
     align-items: center;
     gap: 20px;
-    border-radius: 10px;
-    background: var(--background);
     box-shadow:  7px 7px 14px var(--shaddow1),
-                 -7px -7px 14px var(--shaddow2);
-    padding-right: 10px;
+    -7px -7px 14px var(--shaddow2);
+
 }
 
 .chatHeader .myImage {

@@ -9,9 +9,6 @@
 .sideBarMenu {
     width: 100%;
     height:  var(--sizeHeight2);
-    border-radius: var(--borderBox);
-    border-radius: 10px;
-    background: var(--background);
     box-shadow:  7px 7px 14px var(--shaddow1),
     -7px -7px 14px var(--shaddow2);
 }
@@ -19,26 +16,14 @@
 .sideBarContainer {
     width: 100%;
     height: calc(100% - var(--sizeHeight2));
-    border-radius: var(--borderBox);
-    border-radius: 10px;
-    background: var(--background);
-    box-shadow:  7px 7px 14px var(--shaddow1),
-                 -7px -7px 14px var(--shaddow2);
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
     padding: 20px;
     overflow-y: auto;
-}
-
-.person {
-    width: 100px;
-    min-height: 90px;
-    border-radius: 10px;
-    background: var(--background);
     box-shadow:  7px 7px 14px var(--shaddow1),
-                 -7px -7px 14px var(--shaddow2);
+    -7px -7px 14px var(--shaddow2);
 }
 
 @media screen and (max-width: 500px) {

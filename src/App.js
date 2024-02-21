@@ -1,17 +1,21 @@
 import './App.css';
+import "nes.css/css/nes.min.css";
 import BarSide from './Components/BarSide/BarSide';
 import Person from './Components/Person/Person'
 import ChatContainer from './Components/ChatContainer/ChatContainer';
 import ChatHeader from './Components/ChatHeader/ChatHeader';
 import ChatBox from './Components/ChatBox/ChatBox';
 import Login from './Components/Login/Login';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import Draggable from 'react-draggable';
 
 function App() {
   const [websocket, setWebsocket] = useState(null);
   const [name, setName] = useState('');
   const [id, setID] = useState('');
   const [messages, setMessages] = useState([]);
+  const [startChatPrivate, setStartChatPrivate] = useState(false)
+  const draggableRef = useRef(null);
 
   useEffect(() => {
     const processMessage = ({ data }) => {
@@ -41,6 +45,11 @@ function App() {
     return newWebSocket;
   };
 
+  const startChat = () => {
+    console.log('oi')
+    setStartChatPrivate(true)
+  }
+
   return (
     <div className="App">
       <Login 
@@ -49,10 +58,18 @@ function App() {
         setID={setID} 
       />
       <BarSide>
-        <Person />
+        <Person startChat={startChat}/>
         <Person />
         <Person />
       </BarSide>
+      {startChatPrivate && (
+        <Draggable nodeRef={draggableRef}>
+          <div ref={draggableRef} style={{ position: 'absolute', top: '20%', left: '20%', zIndex: 2 }}>
+            TESTE 123 TESTE 123
+            <button className='nes-btn is-warning' onClick={()=>setStartChatPrivate(false)}>Sair</button>
+          </div>
+        </Draggable>
+      )}
       <ChatContainer>
         <ChatHeader 
           name={name}

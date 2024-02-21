@@ -21,7 +21,7 @@ const Message = (props) => {
                 <div className='image'></div> : null
             }
 
-            <div className='messageBox'>
+            <div className='messageBox nes-container is-rounded'>
                 <span className='id inf'>{props.id}</span>
                 <span className='message'>{props.message}</span>
                 <span className='time inf'>{time}</span>

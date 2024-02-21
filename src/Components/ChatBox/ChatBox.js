@@ -6,7 +6,7 @@ const ChatBox = (props) => {
 
     const [text, setText] = useState('')
     const [count, setCount] = useState(0)
-    const [color, setColor] = useState(0) // 0-black | 1-orange | 2-red
+    const [color, setColor] = useState('#209cee') // 0-black | 1-orange | 2-red
     const inputRef = useRef(null);
     const chatRef = useRef(null)
     const maxCaracters = 150
@@ -31,7 +31,7 @@ const ChatBox = (props) => {
         else if(textLength >= maxCaracters)
             setColor('#8b3232') //red
         else
-            setColor('white')
+            setColor('#209cee')
     };
 
     const handleSend = (event) => {
@@ -56,7 +56,7 @@ const ChatBox = (props) => {
     
     return (
         <div className='chatBox'>
-            <div className='chat' ref={chatRef}>
+            <div className='chat nes-container is-rounded' ref={chatRef}>
                 {props.messages.map((message, index) => (
                     <Message 
                         id={message.userID}
@@ -72,7 +72,8 @@ const ChatBox = (props) => {
                 style={{'--color': color}}
             >
                 <input 
-                    id="input" 
+                    id="input"
+                    className="nes-input is-success"
                     type="text"
                     value={text}
                     placeholder="Digite algo aqui..."
@@ -82,7 +83,7 @@ const ChatBox = (props) => {
                 <button 
                     id="button" 
                     type="button" 
-                    className="sendBox"
+                    className="sendBox nes-btn is-success"
                     onClick={handleSend}
                 >
                         <span className="material-symbols-outlined">send</span>
