@@ -43,7 +43,7 @@ const Login = (props) => {
             'userName': configName(),
             'userID': id,
             'message': id + ' - Conected sucessfully!',
-            'messageType': -1, //configuration
+            'messageType': 0, //configuration
         }
         localStorage.setItem('user', JSON.stringify(configUser))
         return configUser

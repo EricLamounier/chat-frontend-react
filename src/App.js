@@ -16,10 +16,35 @@ function App() {
   const [messages, setMessages] = useState([]);
   const [startChatPrivate, setStartChatPrivate] = useState(false)
   const draggableRef = useRef(null);
+  const [onlineUsers, setOnlineUsers] = useState([])
 
   useEffect(() => {
+
+    const processData = ({data}) => {
+      const _data = JSON.parse(data) 
+      
+      switch(_data.messageType){
+        case 1: // Usuarios
+          setOnlineUsers(_data.users)
+          break;
+
+        case 2: // Mensagens
+          const message = {
+            'userID': _data.userID,
+            'userName': _data.userName,
+            'message': _data.message,
+            'messageType': _data.userID === id ? 'send' : 'receive'
+          };
+
+          setMessages(prevMessages => [...prevMessages, message]);
+          break;
+      }
+    }
+
+    /*
     const processMessage = ({ data }) => {
-      const _data = JSON.parse(data);
+      const _data = JSON.parse(data.message);
+      //console.log(data)
 
       const message = {
         'userID': _data.userID,
@@ -28,27 +53,21 @@ function App() {
         'messageType': _data.userID === id ? 'send' : 'receive'
       };
 
-      console.log(_data.userID === id ? 0 : 1)
-
       if (_data.messageType === -1) return // Login      
 
       setMessages(prevMessages => [...prevMessages, message]);
-    };
+    };*/
 
-    if (websocket) websocket.onmessage = processMessage;
+    if (websocket) websocket.onmessage = processData;
     
   }, [id, websocket]);
 
   const handleLogin = () => {
-    const newWebSocket = new WebSocket('wss://partially-legible-ferret.ngrok-free.app');
+    //const newWebSocket = new WebSocket('wss://cchat-backend-dev-jnhe.3.us-1.fl0.io/');
+    const newWebSocket = new WebSocket('ws://localhost:8080');
     setWebsocket(newWebSocket);
     return newWebSocket;
   };
-
-  const startChat = () => {
-    console.log('oi')
-    setStartChatPrivate(true)
-  }
 
   return (
     <div className="App">
@@ -58,9 +77,9 @@ function App() {
         setID={setID} 
       />
       <BarSide>
-        <Person startChat={startChat}/>
-        <Person />
-        <Person />
+        {
+          onlineUsers.map((user, index) => (<Person key={index} >{user}</Person>))
+        }
       </BarSide>
       {startChatPrivate && (
         <Draggable nodeRef={draggableRef}>

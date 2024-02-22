@@ -51,7 +51,7 @@ const ChatBox = (props) => {
             'userName': user.userName,
             'message': text,
             'image': false,
-            'messageType': 0,
+            'messageType': 2
         }
         props.websocket.send(JSON.stringify(message));
     }
