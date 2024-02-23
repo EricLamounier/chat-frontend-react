@@ -18,12 +18,12 @@ const Message = (props) => {
         <div className={`messageContainer ${props.messageType}`}>
             { // Imagem caso for mensagem recebida
                 props.messageType === 'receive' ? 
-                <div className='image'>{props.id[0].toUpperCase()}</div> : null
+                <div className='image card'>{props.id[0].toUpperCase()}</div> : null
             }
 
-            <div className='messageBox nes-container is-rounded'>
+            <div className='messageBox card'>
                 <span className='id inf'>{props.id}</span>
-                <span className='message'>{props.message}</span>
+                <span className='msg'>{props.message}</span>
                 <span className='time inf'>{time}</span>
             </div>
         </div>        
@@ -31,35 +31,3 @@ const Message = (props) => {
 }
 
 export default Message
-
-/*
-
-
-<div className='messageContainer'>
-            <div className='messageBox'>
-                <span className='id'></span>
-                <span className='message'></span>
-                <span className='time'></span>
-            </div>
-        </div>
-
-
-
-<!--
-    <div class="messageBox">
-        <div class="sendMessage message">
-            <span class="myID ID">myid#1234</span>
-            <span class="messageContent">oi</span>
-            <span class="time">13:27</span>
-        </div>
-    </div>
-
-    <div class="messageBox">
-        <div class="receivedImage">SB</div>
-        <div class="receivedMessage message">
-            <span class="personID ID">xid#09876</span>
-            <span class="messageContent">Lorem ipsun</span>
-            <span class="time">13:29</span>
-        </div>
-    </div>
---> */

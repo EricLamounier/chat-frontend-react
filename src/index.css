@@ -8,30 +8,25 @@
 
 body {
   background: var(--background) !important;
-  /*font-family: sans-serif !important;*/
-  /*color: var(--fontColor) !important;*/
   font-family: "Press Start 2P", system-ui;
 }
 
 :root {
-  --size1: 100px;
-  --sizeHeight2: 70px;
-  --gap1: 50px;
-  --borderBox: 15px;
-  --background: #f0f0f0;
-  --shaddow1: #c7c7c7;
-  --shaddow2: #ffffff;
-  --fontColor: rgb(44, 44, 44);
-  --fontColor2: rgb(196, 196, 196);
+  --boxHeightHeader: 15%;
+  --boxGap: 5%;
+  --boxHeightBody: 80%;
 }
 
-
 #root {
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  background-color: #252525;
+}
+
+input {
+  color: #d9d9d9 !important;
 }
 
 ::-webkit-scrollbar {

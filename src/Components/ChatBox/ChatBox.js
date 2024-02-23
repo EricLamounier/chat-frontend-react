@@ -58,7 +58,7 @@ const ChatBox = (props) => {
     
     return (
         <form className='chatBox'>
-            <div className='chat nes-container is-rounded' ref={chatRef}>
+            <div className='chat card has-background-dark' ref={chatRef}>
                 {props.messages.map((message, index) => (
                     <Message 
                         id={message.userID}
@@ -76,17 +76,18 @@ const ChatBox = (props) => {
             >
                 <input 
                     id="input"
-                    className="nes-input is-success"
+                    className='card input is-focused has-background-dark'
                     type="text"
                     value={text}
                     placeholder="Digite algo aqui..."
                     ref={inputRef}
+                    autoComplete='off'
                     onInput={handleInput}
                 />
                 <button 
-                    id="button" 
+                    id="button"
                     type="submit" 
-                    className="sendBox nes-btn is-success"
+                    className="sendBox button is-dark"
                     onClick={handleSend}
                 >
                         <span className="material-symbols-outlined">send</span>

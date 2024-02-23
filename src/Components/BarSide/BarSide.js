@@ -2,8 +2,9 @@ import './BarSide.css'
 const BarSide = (props) => {
     return (
         <div className='side'>
-            <div className='sideBarMenu nes-container is-rounded'></div>
-            <div className='sideBarContainer nes-container is-rounded'>
+            <div className='sideBarMenu card has-background-dark'></div>
+            <div className='sideBarContainer card has-background-dark'>
+                <p className='online'>Online</p>
                 {props.children}
             </div>
         </div>

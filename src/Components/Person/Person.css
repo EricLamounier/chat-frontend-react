@@ -1,6 +1,19 @@
 .person {
-    width: 100px;
-    min-height: 90px;
-    box-shadow:  7px 7px 14px var(--shaddow1),
-    -7px -7px 14px var(--shaddow2);
+    background-color: rgb(65, 65, 65) !important;
+    width: 100%;
+    min-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow:  6px 6px 22px #2f2f2fcd,
+    -6px -6px 22px #41414109 !important;
+}
+
+.person:hover {
+    background-color: rgb(44, 44, 44) !important;
+}
+
+.person:active {
+    background-color: #282828 !important;
+    transform: translate(0.3px, 0.3px);
 }

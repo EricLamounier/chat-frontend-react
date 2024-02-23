@@ -3,10 +3,10 @@ import './Person.css'
 const Person = (props) => {
 
     return (
-        <a className='person nes-btn is-rounded is-primary'
+        <button className='person button is-dark'
         >
             {props.children}
-        </a>
+        </button>
     )
 }
 

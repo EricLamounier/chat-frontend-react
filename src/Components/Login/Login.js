@@ -1,11 +1,16 @@
 import './Login.css'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 const Login = (props) => {
 
     const [name, setName] = useState('')
     const [user, setUser] = useState({})
     const [error, setError] = useState('')
+    const refName = useRef(null)
     const [isVisible, setIsVisible] = useState(true)
+
+    useEffect(() => {
+        setUser(user)
+    }, [user]);
 
     const handleInput = (event) => {
         const textLength = event.target.value.length
@@ -20,7 +25,13 @@ const Login = (props) => {
         e.preventDefault()
         const nameLength = name.length
         if (nameLength < 3){
-            setError('Necessário tem um mínimo de 3 caracteres!')
+            setError('Necessário um mínimo de 3 caracteres!')
+            refName.current.focus()
+            refName.current.classList.add('is-danger')
+            setTimeout(() => {
+                refName.current.classList.remove('is-danger')
+                setError('');
+            }, 2000)
             return
         }
 
@@ -32,10 +43,6 @@ const Login = (props) => {
         props.setID(config.userID)
         ws.onopen = () => ws.send(JSON.stringify(config));
     }
-
-    useEffect(() => {
-        setUser(user)
-    }, [user]);
 
     const cadUser = () => {
         const id = getRandomID();
@@ -63,27 +70,26 @@ const Login = (props) => {
     return (
         <div id="login" style={{display: isVisible ? 'flex' : 'none'}}>
             <form 
-                className="form nes-container with-title"
+                className="form card has-background-dark"
             >
                 <p className="title">Entrar</p>
                 <div className="formBox">
-                    <label 
-                        htmlFor="name_field">Seu nome</label>
                     <input 
                         type="text" 
-                        id="name_field" 
-                        className="nes-input is-success"
+                        id="name"
+                        className='input'
                         placeholder="Digite seu nome aqui"
                         value={name}
+                        ref={refName}
                         onInput={handleInput}
                         autoComplete="off"
                         required 
                     />
-                    <span id="errorMessage">{error}</span>
+                    <p className='help is-danger'>{error}</p>
                     <button 
                         type="submit" 
-                        className="nes-btn is-warning"
                         id="entrar"
+                        className='button is-info'
                         onClick={handleLogin}
                     >Entrar</button>            
                 </div>

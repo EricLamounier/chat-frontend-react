@@ -1,5 +1,5 @@
 import './App.css';
-import "nes.css/css/nes.min.css";
+import 'bulma/css/bulma.min.css';
 import BarSide from './Components/BarSide/BarSide';
 import Person from './Components/Person/Person'
 import ChatContainer from './Components/ChatContainer/ChatContainer';
@@ -22,10 +22,10 @@ function App() {
 
     const processData = ({data}) => {
       const _data = JSON.parse(data) 
-      
       switch(_data.messageType){
         case 1: // Usuarios
-          setOnlineUsers(_data.users)
+          const filteredUsers = _data.users.filter(userId => userId !== id);
+          setOnlineUsers(filteredUsers);
           break;
 
         case 2: // Mensagens
@@ -38,6 +38,9 @@ function App() {
 
           setMessages(prevMessages => [...prevMessages, message]);
           break;
+
+          default:
+            break;
       }
     }
 
@@ -59,18 +62,37 @@ function App() {
     };*/
 
     if (websocket) websocket.onmessage = processData;
+
+    // Adicionando o listener beforeunload
+    const handleBeforeUnload = () => {
+      if (websocket && id) {
+        const logoutMessage = {
+          messageType: 3, // Logout
+          userID: id,
+        };
+        websocket.send(JSON.stringify(logoutMessage));
+      }
+    };
+
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    // Removendo o listener beforeunload quando o componente é desmontado
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
     
   }, [id, websocket]);
 
   const handleLogin = () => {
     //const newWebSocket = new WebSocket('wss://cchat-backend-dev-jnhe.3.us-1.fl0.io/');
-    const newWebSocket = new WebSocket('ws://localhost:8080');
+    //const newWebSocket = new WebSocket('ws://localhost:8080');
+    const newWebSocket = new WebSocket('wss://partially-legible-ferret.ngrok-free.app/')
     setWebsocket(newWebSocket);
     return newWebSocket;
   };
 
   return (
-    <div className="App">
+    <div className="App ">
       <Login 
         onLogin={handleLogin} 
         setName={setName}

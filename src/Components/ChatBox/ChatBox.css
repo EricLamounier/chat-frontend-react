@@ -1,98 +1,33 @@
 .chatBox {
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    max-height: 683px;
-    border-radius: 20px;
+    gap:2%;
+    width: 100%;
+    height: var(--boxHeightBody);
 }
 
 .chat {
     width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    padding: 5px !important;
-    padding-bottom: 20px  !important;
-    color: white;
-    overflow-y: auto;
-    scroll-behavior: smooth;
-    box-shadow:  12px 12px 24px var(--shaddow1),
-             -12px -12px 24px #ffffff;
-}
-
-::-webkit-scrollbar {
-    width: 2px;
-  }
-  
-::-webkit-scrollbar-track {
-    background: rgb(171, 171, 171);
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: rgb(93, 93, 93);    /* color of the scroll thumb */
+    height: 88%;
+    overflow-y: scroll;
+    padding-bottom: 20px;
+    background-color: rgb(104, 94, 121);
 }
 
 .inputBox {
-    width: 100%;
     display: flex;
-    gap: 20px;
-    height: calc(var(--sizeHeight2) - 10px);
-    position: relative;
-    font-size: 12px;
-}
-
-.inputBox > input[type=text] {
+    gap: 2%;
     width: 100%;
-    padding-left: 10px;
-    background: var(--background);
-    color: var(--fontColor);
-    border-color: white !important;
-    outline-color: rgb(164, 164, 164);
-    box-shadow:  12px 12px 24px var(--shaddow1),
-             -12px -12px 24px #ffffff;
+    height: 10%;
 }
 
-.inputBox > input::placeholder {
-    font-size: 14px;
-    color: var(--fontColor);
-    opacity: 0.4;
+.inputBox input {
+    width: 85%;
+    height: 100%;
 }
 
-.inputBox > #button {
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.1s ease-in-out;
-    box-shadow:  12px 12px 24px var(--shaddow1),
-             -12px -12px 24px #ffffff;
-}
-
-.inputBox::after {
-    content: 'Caracteres: ';
-    position: absolute;
-    bottom: -23px;
-    left: 5px;
-    color: #209cee;
-    font-size: 10px;
-}
-
-.inputBox::before {
-    content: attr(count);
-    position: absolute;
-    bottom: -23px;
-    left: 125px;
-    font-weight: bold;
-    color: var(--color, #209cee);
-}
-
-.inputBox > .sendBox {
-    width: 80px;
-}
-
-#button:active .material-symbols-outlined {
-    transform: translate(2px,2px);
+.inputBox button {
+    width: 13%;
+    height: 100%;
+    background-color: rgb(41, 23, 129) !important;
 }

@@ -2,30 +2,31 @@
     width: 100%;
     display: flex;
     gap: 10px;
+    padding: 7px;
 }
 
 .messageContainer .messageBox {
     width: 75%;
     max-width: 350px;
     display: flex;
+    padding: 7px;
+    border-radius: 10px !important;
     flex-direction: column;
     justify-content: space-between;
-    gap: 5px;
-    padding: 1px;
-    box-shadow:  7px 7px 14px var(--shaddow1),
-                 -7px -7px 14px var(--shaddow2);
+    background-color: rgb(65, 65, 65) !important;
+    color: #fff !important;
 }
 
 .messageContainer.receive {
-    justify-content: flex-start;
+    justify-content: flex-start !important;
 }
 
 .messageContainer.receive .messageBox {
-    border-top-left-radius: 0;
+    border-top-left-radius: 0 !important;
 }
 
 .messageContainer.send .messageBox {
-    border-bottom-right-radius: 0;
+    border-bottom-right-radius: 0 !important;
 }
 
 .messageContainer.send {
@@ -42,31 +43,26 @@
     align-items: center;
 }
 
-.messageBox .message {
+.messageBox .msg {
     font-size: 14px;
+    padding: 6px;
     padding-left: 5px;
-    font-size: 11px;
     word-wrap: break-word;
-    color: black
 }
 
 .messageBox .inf {
     font-size: 11px;
-    opacity: 0.6;
     font-family: sans-serif;
-    color: #000;
     font-style: italic;
+    opacity: 0.5;
 }
 
 .messageContainer .image {
-    color: rgb(47, 47, 47);
     width: 30px;
     height: 30px;
     display: flex;
+    color: #fff !important;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    border: 2px solid black;
-    box-shadow:  7px 7px 14px var(--shaddow1),
-                 -7px -7px 14px var(--shaddow2);
+    background-color: rgb(65, 65, 65) !important;
 }

@@ -1,9 +1,8 @@
 .App {
-  width: 80%;
-  max-width: 1150px;
-  height: 95vh;
-  max-height: 910px;
-  padding: 50px;
+  width: 85%;
+  max-width: 1200px;
+  height: 85vh;
+  max-height: 900px;
   display: flex;
-  gap: 50px;
+  gap: 5%;
 }
